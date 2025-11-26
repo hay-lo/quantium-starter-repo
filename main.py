@@ -16,7 +16,7 @@ for file_name in sorted(os.listdir(DATA_DIRECTORY)):
     print(f"Processing: {file_path}")
 
     # Read file in chunks to handle large datasets
-    for chunk in pd.read_csv(file_path, chunksize=80_000):
+    for chunk in pd.read_csv(file_path, chunksize=50_000):
 
         # Filter for pink morsel
         chunk = chunk[chunk["product"] == "pink morsel"]
