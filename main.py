@@ -30,6 +30,8 @@ for file_name in sorted(os.listdir(DATA_DIRECTORY)):
             .str.replace("$", "", regex=False)
             .astype(float)
         )
+         # Compute sales efficiently
+        chunk["date"] = pd.to_datetime(chunk["date"], errors="coerce").dt.strftime("%Y-%m-%d")
 
         # Compute sales efficiently
         chunk["sales"] = chunk["price"] * chunk["quantity"].astype(int)
